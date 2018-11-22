@@ -44,7 +44,7 @@ private:
 	*/
 
 	//Rows, cols represent the practical number of rows and columns, aka
-	
+
 	int rows;
 	int cols;
 	int actualRows;
