@@ -57,10 +57,12 @@ private:
 	//Makes the first row of your table a header row for the titles of columns
 	bool bIncludeHeaderRow = false;
 	std::string title;
-
+	std::string formatString;
 	int tableNumber;
 	static int tableCount;
 	char borderChar = '|';
+
+	bool bFormattingStringSet = false;
 };
 
 

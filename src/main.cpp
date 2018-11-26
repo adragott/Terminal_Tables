@@ -12,6 +12,8 @@ int main()
 	string msg2("3le");
 
 	initscr();
+	timeout(0);
+	noecho();
 	WINDOW* table_1 = newwin(8, 43, 0, 0);
 	WINDOW* table_2 = newwin(8, 43, 9, 0);
 	box(table_1, '|', '-');
@@ -20,11 +22,27 @@ int main()
 	wrefresh(table_1);
 	wrefresh(table_2);
 	wprintw(table_1, "hey");
-	mvwprintw(table_2, 1, 1, "%7s|%3s|", msg1.c_str(), msg2.c_str());
-	mvwprintw(table_2, 2, 1, (string(41, '-')).c_str());
-	wrefresh(table_1);
-	wrefresh(table_2);
-	getch();
+	int x = 0;
+
+
+
+	while(1)
+	{
+		mvwprintw(table_2, 1, 0, "%7s|%08d|", msg1.c_str(), x++);
+		mvwprintw(table_2, 2, 0, (string(41, '-')).c_str());
+		char c = getch();
+		if(c == 'x')
+		{
+			wrefresh(table_1);
+			wrefresh(table_2);
+		}
+		else if(c == '`')
+		{
+
+			break;
+		}
+	}
+
 	endwin();
 	return 0;
 }
